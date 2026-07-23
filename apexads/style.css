@@ -184,7 +184,16 @@ h1.headline .accent{
   color:transparent;
   display:flex; align-items:center; gap:12px;
 }
-.stat-value svg{ width:34px; height:34px; }
+.stat-value svg{ width:34px; height:34px; flex-shrink:0; }
+.stat-value--text{
+  font-size:24px;
+  line-height:1.25;
+  gap:14px;
+}
+.stat-value--text svg{ width:26px; height:26px; }
+@media (max-width:520px){
+  .stat-value--text{ font-size:20px; }
+}
 .stat-caption{
   margin-top:4px;
   font-size:14px;
