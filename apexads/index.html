@@ -1,473 +1,190 @@
-/* ============================================
-   APEX ADS — Fichas Mayoristas al 6%
-   Token system
-   ============================================ */
-:root{
-  --bg: #04060B;
-  --bg-soft: #070B14;
-  --panel: #0B1120;
-  --panel-2: #0E1526;
-  --border: #1B2740;
-  --border-soft: #141D33;
-  --text: #F3F6FC;
-  --text-dim: #93A0B8;
-  --text-faint: #5C6880;
-  --blue: #2F7CFF;
-  --blue-2: #1354D6;
-  --blue-light: #7FB3FF;
-  --blue-glow: rgba(47,124,255,.35);
-  --white: #FFFFFF;
-  --green: #22C55E;
-  --green-light: #7CF29C;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Ads | Fichas Mayoristas — Atención por WhatsApp</title>
+<meta name="description" content="Comprá fichas para tu panel a precio mayorista, según volumen. Sin mínimo de compra. Ideal para agentes, cajeros y mayoristas. Atención rápida por WhatsApp.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  --font-display: 'Sora', 'Segoe UI', sans-serif;
-  --font-body: 'Inter', 'Segoe UI', sans-serif;
-}
+<div class="bg-fx"></div>
 
-*{ box-sizing:border-box; margin:0; padding:0; }
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Apex Ads">
+      <div class="brand-name">APEX <span>ADS</span></div>
+    </div>
+    <a class="nav-cta" href="#form" id="navWaBtn">
+      <span>💬</span> <span class="nav-cta-text">Escribinos</span>
+    </a>
+  </div>
+</nav>
 
-html{ scroll-behavior:smooth; }
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Atención rápida por WhatsApp</div>
+      <h1 class="headline">Fichas<br><span class="accent">Mayoristas</span></h1>
+      <p class="sub">Comprá fichas para tu panel sin mínimo de compra. Ideal para agentes, cajeros y mayoristas que ya venden en plataformas activas.</p>
 
-body{
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+      <div class="stat-card">
+        <div class="stat-label">Porcentaje mayorista</div>
+        <div class="stat-value stat-value--text">
+          % según volumen de fichas que requiere
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>
+        </div>
+        <div class="stat-caption">Servicio rápido, directo y confiable.</div>
+      </div>
 
-img{ max-width:100%; display:block; }
+      <div class="pill-row">
+        <div class="pill">Sin mínimo</div>
+        <div class="pill">+10 plataformas</div>
+        <div class="pill">Soporte 24/7</div>
+      </div>
+    </div>
 
-a{ color:inherit; text-decoration:none; }
+    <div class="form-card" id="form">
+      <div class="form-title">Dejanos tus datos</div>
+      <div class="form-sub">Te respondemos por WhatsApp en minutos.</div>
 
-.container{
-  width:100%;
-  max-width:1180px;
-  margin:0 auto;
-  padding:0 24px;
-}
+      <div class="field">
+        <label for="fName">Tu nombre</label>
+        <input type="text" id="fName" placeholder="Ej: Jhon">
+      </div>
 
-/* ---------- Background atmosphere ---------- */
-.bg-fx{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:
-    radial-gradient(680px 420px at 12% -5%, rgba(47,124,255,.20), transparent 60%),
-    radial-gradient(620px 500px at 100% 10%, rgba(19,84,214,.16), transparent 55%),
-    linear-gradient(180deg, #04060B 0%, #05080F 40%, #04060B 100%);
-}
-.bg-fx::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: radial-gradient(700px 500px at 20% 0%, black, transparent 70%);
-}
+      <div class="field">
+        <label for="fExp">¿Tenés experiencia vendiendo?</label>
+        <select id="fExp">
+          <option value="">Seleccioná una opción</option>
+          <option value="No, estoy empezando">No, estoy empezando</option>
+          <option value="Sí, poca experiencia">Sí, poca experiencia</option>
+          <option value="Sí, tengo experiencia">Sí, tengo experiencia</option>
+          <option value="Sí, ya vendo activamente">Sí, ya vendo activamente</option>
+        </select>
+      </div>
 
-/* ---------- Nav ---------- */
-.nav{
-  position:sticky; top:0; z-index:50;
-  backdrop-filter: blur(14px);
-  background: rgba(4,6,11,.72);
-  border-bottom:1px solid var(--border-soft);
-}
-.nav-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-}
-.brand{ display:flex; align-items:center; gap:10px; }
-.brand img{ height:34px; width:auto; }
-.brand-name{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:17px;
-  letter-spacing:.02em;
-}
-.brand-name span{ color: var(--blue-light); }
-.nav-cta{
-  display:flex; align-items:center; gap:8px;
-  padding:10px 18px;
-  border-radius:999px;
-  font-size:14px;
-  font-weight:600;
-  background: linear-gradient(135deg, var(--green-light), var(--green));
-  color:#062712;
-  box-shadow: 0 8px 24px -8px rgba(34,197,94,.5);
-}
+      <div class="field">
+        <label for="fNetwin">Netwin aproximado mensual</label>
+        <select id="fNetwin">
+          <option value="">Seleccioná tu rango</option>
+          <option value="Menos de $100.000">Menos de $100.000</option>
+          <option value="$100.000 - $500.000">$100.000 - $500.000</option>
+          <option value="$500.000 - $1.000.000">$500.000 - $1.000.000</option>
+          <option value="Más de $1.000.000">Más de $1.000.000</option>
+        </select>
+      </div>
 
-/* ---------- Hero ---------- */
-.hero{
-  position:relative; z-index:1;
-  padding: 64px 0 40px;
-}
-.eyebrow{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background: var(--panel);
-  font-size:13px;
-  color: var(--blue-light);
-  font-weight:600;
-  margin-bottom:26px;
-}
-.eyebrow .dot{
-  width:7px; height:7px; border-radius:50%;
-  background: var(--green-light);
-  box-shadow: 0 0 0 4px rgba(124,242,156,.15);
-}
+      <div class="field">
+        <label for="fPlat">Plataforma en la que más vendés</label>
+        <input type="text" id="fPlat" placeholder="Ej: Ganamos, Zeus, Oropuro...">
+      </div>
 
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.15fr .95fr;
-  gap:48px;
-  align-items:start;
-}
+      <button class="wa-btn" id="submitWa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8 8 0 0 0 4 17.6L3 21l3.5-1A8 8 0 1 0 17.6 6.3zM12 18.6a6.6 6.6 0 0 1-3.4-.9l-.24-.14-2.5.66.67-2.44-.16-.25A6.6 6.6 0 1 1 12 18.6zm3.6-4.9c-.2-.1-1.16-.57-1.34-.64-.18-.06-.31-.1-.44.1-.13.2-.5.63-.62.76-.11.13-.23.14-.42.05-.2-.1-.85-.31-1.6-.99-.6-.53-1-1.18-1.11-1.38-.12-.2-.01-.3.09-.4.09-.1.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62s.7 1.88.8 2.01c.1.13 1.38 2.1 3.34 2.95.47.2.83.32 1.12.41.47.15.9.13 1.24.08.38-.06 1.16-.47 1.32-.93.16-.46.16-.85.11-.93-.05-.08-.18-.13-.38-.23z"/></svg>
+        Enviar por WhatsApp
+      </button>
+      <div class="form-foot">Al tocar el botón se abre WhatsApp con el mensaje listo para enviar.</div>
+    </div>
+  </div>
+</section>
 
-h1.headline{
-  font-family: var(--font-display);
-  font-weight:700;
-  font-size: clamp(38px, 5vw, 64px);
-  line-height:1.04;
-  letter-spacing:-.01em;
-}
-h1.headline .accent{
-  background: linear-gradient(100deg, var(--white) 0%, var(--blue-light) 45%, var(--blue) 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
+<!-- PLATFORMS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Plataformas disponibles</h2>
+      <p class="section-sub">Trabajamos con múltiples marcas para que puedas comprar fichas según la plataforma donde más vendés.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card">Ganamos</div>
+      <div class="platform-card">Casino Zeus</div>
+      <div class="platform-card">Bet30</div>
+      <div class="platform-card">Gana en Casa</div>
+      <div class="platform-card">Jugamos</div>
+      <div class="platform-card">Celu Apuestas</div>
+      <div class="platform-card">Casino Zeta</div>
+      <div class="platform-card">Oropuro Casino</div>
+    </div>
+  </div>
+</section>
 
-.sub{
-  margin-top:22px;
-  font-size:17px;
-  color: var(--text-dim);
-  max-width:520px;
-}
+<!-- WHY US -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">¿Por qué elegirnos?</h2>
+      <p class="section-sub">Una propuesta pensada para quien ya vende o quiere empezar a mover fichas con atención rápida.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Sin mínimo de compra</div>
+        <div class="feature-text">Comprás según tu necesidad, sin montos obligatorios.</div>
+      </div>
+      <div class="feature-card highlight">
+        <div class="feature-icon">💎</div>
+        <div class="feature-title">% según volumen</div>
+        <div class="feature-text">Precio mayorista competitivo según la cantidad de fichas que necesites, para escalar tu operación.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Operación segura</div>
+        <div class="feature-text">Atención directa, clara y sin vueltas.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎧</div>
+        <div class="feature-title">Soporte 24/7</div>
+        <div class="feature-text">Respuesta rápida para resolver consultas y avanzar.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Enfoque mayorista</div>
+        <div class="feature-text">Ideal para cajeros, agentes y perfiles con netwin activo.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-.stat-card{
-  margin-top:30px;
-  padding:22px 24px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  background: linear-gradient(160deg, var(--panel) 0%, var(--panel-2) 100%);
-  max-width:420px;
-  position:relative;
-  overflow:hidden;
-}
-.stat-card::after{
-  content:"";
-  position:absolute; right:-40px; top:-40px;
-  width:160px; height:160px;
-  background: radial-gradient(circle, var(--blue-glow), transparent 70%);
-}
-.stat-label{
-  font-size:12px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color: var(--text-faint);
-  font-weight:700;
-}
-.stat-value{
-  font-family: var(--font-display);
-  font-size:52px;
-  font-weight:700;
-  margin-top:6px;
-  background: linear-gradient(100deg, var(--blue-light), var(--blue));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  display:flex; align-items:center; gap:12px;
-}
-.stat-value svg{ width:34px; height:34px; flex-shrink:0; }
-.stat-value--text{
-  font-size:24px;
-  line-height:1.25;
-  gap:14px;
-}
-.stat-value--text svg{ width:26px; height:26px; }
-@media (max-width:520px){
-  .stat-value--text{ font-size:20px; }
-}
-.stat-caption{
-  margin-top:4px;
-  font-size:14px;
-  color: var(--text-dim);
-}
+<!-- CTA -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="cta-band">
+      <h3>¿Querés fichas al mayor?</h3>
+      <p>Completá tus datos y te abre WhatsApp con el mensaje listo, incluyendo tu nombre, experiencia, netwin y plataforma.</p>
+      <button class="wa-btn" id="ctaWaBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8 8 0 0 0 4 17.6L3 21l3.5-1A8 8 0 1 0 17.6 6.3zM12 18.6a6.6 6.6 0 0 1-3.4-.9l-.24-.14-2.5.66.67-2.44-.16-.25A6.6 6.6 0 1 1 12 18.6zm3.6-4.9c-.2-.1-1.16-.57-1.34-.64-.18-.06-.31-.1-.44.1-.13.2-.5.63-.62.76-.11.13-.23.14-.42.05-.2-.1-.85-.31-1.6-.99-.6-.53-1-1.18-1.11-1.38-.12-.2-.01-.3.09-.4.09-.1.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62s.7 1.88.8 2.01c.1.13 1.38 2.1 3.34 2.95.47.2.83.32 1.12.41.47.15.9.13 1.24.08.38-.06 1.16-.47 1.32-.93.16-.46.16-.85.11-.93-.05-.08-.18-.13-.38-.23z"/></svg>
+        Hablar por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
 
-.pill-row{
-  display:flex; flex-wrap:wrap; gap:10px;
-  margin-top:22px;
-}
-.pill{
-  padding:9px 16px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background: var(--panel);
-  font-size:13px;
-  color: var(--text-dim);
-  font-weight:500;
-}
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Apex Ads">
+      <span>APEX ADS</span>
+    </div>
+    <div class="footer-tag">© <span id="year"></span> Apex Ads — Publicidad que genera resultados.</div>
+  </div>
+</footer>
 
-/* ---------- Form card ---------- */
-.form-card{
-  border-radius:22px;
-  border:1px solid var(--border);
-  background: linear-gradient(160deg, var(--panel) 0%, #090D18 100%);
-  padding:28px;
-  position:sticky;
-  top:90px;
-  box-shadow: 0 30px 60px -30px rgba(0,0,0,.6);
-}
-.form-title{
-  font-family: var(--font-display);
-  font-size:21px;
-  font-weight:700;
-  text-align:center;
-}
-.form-sub{
-  text-align:center;
-  font-size:13.5px;
-  color: var(--text-dim);
-  margin-top:6px;
-}
-.field{ margin-top:18px; }
-.field label{
-  display:block;
-  font-size:13px;
-  font-weight:600;
-  color: var(--text-dim);
-  margin-bottom:8px;
-}
-.field input, .field select{
-  width:100%;
-  padding:13px 14px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background: #060A13;
-  color: var(--text);
-  font-size:14.5px;
-  font-family: var(--font-body);
-  outline:none;
-  transition: border-color .15s, box-shadow .15s;
-  appearance:none;
-}
-.field select{
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%237FB3FF' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
-  background-repeat:no-repeat;
-  background-position: right 14px center;
-}
-.field input:focus, .field select:focus{
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px var(--blue-glow);
-}
-.field input::placeholder{ color: var(--text-faint); }
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" id="floatWaBtn" href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#062712"><path d="M17.6 6.3A8 8 0 0 0 4 17.6L3 21l3.5-1A8 8 0 1 0 17.6 6.3zM12 18.6a6.6 6.6 0 0 1-3.4-.9l-.24-.14-2.5.66.67-2.44-.16-.25A6.6 6.6 0 1 1 12 18.6zm3.6-4.9c-.2-.1-1.16-.57-1.34-.64-.18-.06-.31-.1-.44.1-.13.2-.5.63-.62.76-.11.13-.23.14-.42.05-.2-.1-.85-.31-1.6-.99-.6-.53-1-1.18-1.11-1.38-.12-.2-.01-.3.09-.4.09-.1.2-.23.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.62s.7 1.88.8 2.01c.1.13 1.38 2.1 3.34 2.95.47.2.83.32 1.12.41.47.15.9.13 1.24.08.38-.06 1.16-.47 1.32-.93.16-.46.16-.85.11-.93-.05-.08-.18-.13-.38-.23z"/></svg>
+</a>
 
-.wa-btn{
-  margin-top:22px;
-  width:100%;
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  padding:15px 20px;
-  border-radius:14px;
-  border:none;
-  cursor:pointer;
-  font-family: var(--font-body);
-  font-size:15.5px;
-  font-weight:700;
-  color:#062712;
-  background: linear-gradient(135deg, var(--green-light), var(--green));
-  box-shadow: 0 14px 30px -10px rgba(34,197,94,.55);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.wa-btn:hover{ transform: translateY(-2px); box-shadow: 0 18px 36px -10px rgba(34,197,94,.65); }
-.wa-btn svg{ width:20px; height:20px; }
-.form-foot{
-  margin-top:12px;
-  text-align:center;
-  font-size:12px;
-  color: var(--text-faint);
-}
+<div class="toast" id="toast">Completá al menos tu nombre para continuar.</div>
 
-/* ---------- Section shared ---------- */
-.section{
-  position:relative; z-index:1;
-  padding: 88px 0;
-}
-.section-head{ text-align:center; margin-bottom:46px; }
-.section-title{
-  font-family: var(--font-display);
-  font-size: clamp(26px, 3.4vw, 38px);
-  font-weight:700;
-}
-.section-sub{
-  margin-top:12px;
-  color: var(--text-dim);
-  font-size:15.5px;
-  max-width:560px;
-  margin-left:auto; margin-right:auto;
-}
-
-/* ---------- Platforms ---------- */
-.platform-grid{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:16px;
-}
-.platform-card{
-  border:1px solid var(--border);
-  background: var(--panel);
-  border-radius:14px;
-  padding:26px 14px;
-  display:flex; align-items:center; justify-content:center;
-  min-height:84px;
-  font-family: var(--font-display);
-  font-weight:700;
-  font-size:19px;
-  color: var(--text);
-  text-align:center;
-  transition: border-color .15s, transform .15s;
-}
-.platform-card:hover{ border-color: var(--blue); transform: translateY(-3px); }
-
-/* ---------- Why us ---------- */
-.feature-grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:18px;
-}
-.feature-card{
-  border:1px solid var(--border);
-  background: var(--panel);
-  border-radius:16px;
-  padding:26px;
-  transition: border-color .15s, transform .15s;
-}
-.feature-card:hover{ transform: translateY(-3px); }
-.feature-card.highlight{
-  border-color: var(--blue);
-  background: linear-gradient(160deg, rgba(47,124,255,.10), var(--panel) 60%);
-}
-.feature-icon{
-  width:44px; height:44px;
-  border-radius:12px;
-  display:flex; align-items:center; justify-content:center;
-  background: var(--panel-2);
-  border:1px solid var(--border);
-  margin-bottom:16px;
-  font-size:20px;
-}
-.feature-title{
-  font-family: var(--font-display);
-  font-weight:700;
-  font-size:16.5px;
-  margin-bottom:6px;
-}
-.feature-text{
-  font-size:14px;
-  color: var(--text-dim);
-}
-
-/* ---------- CTA band ---------- */
-.cta-band{
-  border-radius:24px;
-  border:1px solid var(--border);
-  background:
-    radial-gradient(500px 260px at 15% 0%, var(--blue-glow), transparent 60%),
-    linear-gradient(160deg, var(--panel-2), var(--bg-soft));
-  padding:48px 32px;
-  text-align:center;
-}
-.cta-band h3{
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 30px);
-  font-weight:700;
-}
-.cta-band p{
-  margin-top:12px;
-  color: var(--text-dim);
-  font-size:15px;
-  max-width:560px;
-  margin-left:auto; margin-right:auto;
-}
-.cta-band .wa-btn{
-  max-width:280px;
-  margin: 24px auto 0;
-}
-
-/* ---------- Footer ---------- */
-footer{
-  position:relative; z-index:1;
-  border-top:1px solid var(--border-soft);
-  padding: 30px 0;
-}
-.footer-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  flex-wrap:wrap; gap:12px;
-}
-.footer-brand{ display:flex; align-items:center; gap:10px; }
-.footer-brand img{ height:26px; }
-.footer-brand span{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:14px;
-}
-.footer-tag{
-  font-size:12.5px;
-  color: var(--text-faint);
-}
-
-/* ---------- Floating WhatsApp ---------- */
-.float-wa{
-  position:fixed;
-  bottom:22px; right:22px;
-  z-index:60;
-  width:58px; height:58px;
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  background: linear-gradient(135deg, var(--green-light), var(--green));
-  box-shadow: 0 14px 30px -8px rgba(34,197,94,.6);
-  animation: floatPulse 2.6s ease-in-out infinite;
-}
-.float-wa svg{ width:28px; height:28px; }
-@keyframes floatPulse{
-  0%,100%{ box-shadow: 0 14px 30px -8px rgba(34,197,94,.6); }
-  50%{ box-shadow: 0 14px 40px -4px rgba(34,197,94,.8); }
-}
-
-/* ---------- Toast ---------- */
-.toast{
-  position:fixed;
-  bottom:24px; left:50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--panel-2);
-  border:1px solid var(--blue);
-  color: var(--text);
-  padding:12px 20px;
-  border-radius:12px;
-  font-size:13.5px;
-  opacity:0;
-  pointer-events:none;
-  transition: opacity .25s, transform .25s;
-  z-index:80;
-}
-.toast.show{
-  opacity:1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 940px){
-  .hero-grid{ grid-template-columns: 1fr; }
-  .form-card{ position:static; }
-  .platform-grid{ grid-template-columns: repeat(2, 1fr); }
-  .feature-grid{ grid-template-columns: 1fr; }
-}
-@media (max-width: 520px){
-  .nav-cta span.nav-cta-text{ display:none; }
-  .platform-grid{ grid-template-columns: repeat(2, 1fr); }
-}
+<script src="script.js"></script>
+</body>
+</html>
