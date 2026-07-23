@@ -2,7 +2,7 @@
 // APEX ADS — Fichas Mayoristas
 // ============================================
 
-const WHATSAPP_NUMBER = "5491169806536"; // Apex Ads — 223 666 9393 (AR)
+const WHATSAPP_NUMBER = "5492236669393"; // Apex Ads — 223 666 9393 (AR)
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
