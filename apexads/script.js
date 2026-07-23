@@ -26,7 +26,7 @@ function buildMessage(){
     return null;
   }
 
-  let msg = `Hola Apex Ads! Quiero información sobre fichas mayoristas al 6%.\n\n`;
+  let msg = `Hola Apex Ads! Quiero información sobre fichas mayoristas.\n\n`;
   msg += `Nombre: ${name}\n`;
   if(exp) msg += `Experiencia vendiendo: ${exp}\n`;
   if(netwin) msg += `Netwin aproximado mensual: ${netwin}\n`;
