@@ -47,7 +47,7 @@ document.getElementById("submitWa").addEventListener("click", () => {
 });
 
 // Generic quick-contact buttons (nav, cta band, floating button)
-const defaultMessage = "Hola Apex Ads! Quiero información sobre fichas mayoristas al 6%.";
+const defaultMessage = "Hola Apex Ads! Quiero información sobre fichas mayoristas.";
 
 document.getElementById("ctaWaBtn").addEventListener("click", () => {
   const name = document.getElementById("fName").value.trim();
